@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #myImg {
+        position: absolute;
+        top: 200px;
+        left: 200px;
+        height: 150px;
+      }
+      .btn{
+        height: 400px;
+        width: 400px;
+        position: fixed;
+        margin-top: 500px;
+         margin-left: 50px;
+      }
+      button{
+        border-radius: 10px;
+        font-size: 50px;
+        background-color: rgb(255, 255, 255);
+        border: 2;
+      }
+      body{
+        width: 1540px;
+      }
+    </style>
+    <head>
+  </head>
+  <body>
+    <div class="btn" >
+      <button onclick="startTop()" style="margin-left: 90px">⬆️</button><br /><br>
+      <button onclick="startLeft()">⬅️</button>
+      <button style="border: 0; width: 90px;"></button>
+      <button onclick="startRight()">➡️</button><br/><br>
+      <button onclick="startBottom()" style="margin-left: 90px">⬇️</button>
+    </div>
+    <img src="../lab1/IMG-20250828-WA0007.jpg" id="myImg" />
+
+
+    </div>
+
+    
+    <script>
+      currentLeft = 200;
+      currentTop = 200;
+      intervalRef = 0;
+
+      function startRight() 
+      {
+        clearInterval(intervalRef);
+        intervalRef = setInterval(moveRight, 3);
+      }
+      function moveRight()
+      {
+        currentLeft += 1;
+       
+        myImg = document.getElementById("myImg");
+        myImg.style.left = currentLeft + "px";
+      }
+
+
+      function startLeft() 
+      {
+        clearInterval(intervalRef);
+        intervalRef = setInterval(moveLeft, 3);
+      }
+      function moveLeft() 
+      {
+        currentLeft -= 1;
+        if (currentLeft < 0) 
+        {
+          currentLeft = screen.availWidth;
+        }
+        myImg = document.getElementById("myImg");
+        myImg.style.left = currentLeft + "px";
+      }
+
+
+      function startBottom() 
+      {
+        clearInterval(intervalRef);
+        intervalRef = setInterval(moveBottom, 5);
+      }
+      function moveBottom() 
+      {
+        currentTop += 1;
+        myImg = document.getElementById("myImg");
+        myImg.style.top = currentTop + "px";
+      }
+
+
+      function startTop() 
+      {
+        clearInterval(intervalRef);
+        intervalRef = setInterval(moveTop, 5);
+      }
+      function moveTop() 
+      {
+        currentTop -= 1;    
+         if (currentTop < 0) {
+          currentTop = screen.availWidth;
+        }
+        myImg = document.getElementById("myImg");
+        myImg.style.top = currentTop + "px";
+      }
+
+      document.addEventListener("keydown", controlGame);
+
+      function controlGame(e) 
+      {
+        if (e.key == "ArrowLeft")
+        {
+          startLeft();
+        } 
+        else if (e.key == "ArrowRight") 
+        {
+          startRight();
+        } 
+        else if (e.key == "ArrowUp") 
+        {
+          startTop();
+        } 
+        else if (e.key == "ArrowDown")
+        {
+          startBottom();
+        }
+      }
+    </script>
+  </body>
+</html>

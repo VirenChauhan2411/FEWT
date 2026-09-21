@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let DOB = new Date(prompt("Enter the birth date (YYYY-MM-DD):"));
+      let td = new Date();
+
+      let age = td.getFullYear() - DOB.getFullYear();
+      let month = DOB.getMonth();
+      if (
+        DOB.getMonth() == td.getMonth() ||
+        (DOB.getMonth() < td.getMonth() && DOB.getDate() > td.getDate())
+      ) {
+        age--;
+      }
+      document.write("Your age is: " + age);
+      
+    </script>
+  </body>
+</html>

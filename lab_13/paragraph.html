@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <h2 id="heading">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, delectus.
+        In eos inventore vitae numquam explicabo accusantium reiciendis non
+        architecto alias itaque animi officia minus, autem molestias id ipsam
+        ad?
+      </h2>
+    </div>
+
+    <button id="btn">Button</button>
+
+    <script>
+      $(document).ready(function () {
+        $("#btn").click(function () {
+          $("#heading").css("background-color","red")
+        });
+      });
+    </script>
+  </body>
+</html>

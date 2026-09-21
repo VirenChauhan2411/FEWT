@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        height: 70px;
+        width: 100px;
+        font-size: 40px;
+        background-color: rgba(102, 98, 98, 0.4);
+        border-radius: 10px;
+
+        box-shadow:
+          inset -2px -2px 5px #ffffff,
+          inset 2px 2px 5px #aaaaaa;
+      }
+      input {
+        font-size: 50px;
+        border-radius: 10px;
+        background-color: rgba(62, 102, 64, 0.507);
+      }
+      table {
+        margin-left: 500px;
+        margin-top: 50px;
+        background-color: rgba(0, 42, 119, 0.392);
+        box-shadow: 10px 10px 10px rgb(84, 81, 81);
+      }
+      button:active {
+        box-shadow:
+          inset 2px 2px 5px #ffffff,
+          inset 2px 2px 5px #aaaaaa;
+      }
+    </style>
+  </head>
+  <body>
+    <table
+      border="0"
+      cellspacing="2"
+      cellpadding="10"
+      style="border-radius: 20px"
+    >
+      <tr>
+        <td colspan="4">
+          <br /><br />
+
+          <input style="height: 100px; width: 460px" id="input" type="text" />
+          <br /><br />
+          <br /><br />
+          <div class="solar">
+            <div class="card" style="float: right"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button
+            style="background-color: rgb(105, 14, 123)"
+            onclick="ClrAll('AC')"
+          >
+            <b>AC</b>
+          </button>
+        </td>
+        <td><button onclick="DltLast('C')">C</button></td>
+        <td><button onclick="Display('%')">%</button></td>
+        <td><button onclick="Display('/')">÷</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="Display('7')">7</button></td>
+        <td><button onclick="Display('8')">8</button></td>
+        <td><button onclick="Display('9')">9</button></td>
+        <td><button onclick="Display('*')">X</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="Display('4')">4</button></td>
+        <td><button onclick="Display('5')">5</button></td>
+        <td><button onclick="Display('6')">6</button></td>
+        <td><button onclick="Display('-')">-</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="Display('1')">1</button></td>
+        <td><button onclick="Display('2')">2</button></td>
+        <td><button onclick="Display('3')">3</button></td>
+        <td><button onclick="Display('+')">+</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="Display('0')">0</button></td>
+        <td><button onclick="Display('00')">00</button></td>
+        <td><button onclick="Display('.')">.</button></td>
+        <td><button onclick="Calculate('=')">=</button></td>
+      </tr>
+    </table>
+    <script>
+      function Display(arg) 
+      {
+        document.getElementById("input").value += arg;
+      }
+      
+      function ClrAll() 
+      {
+        document.getElementById("input").value = " ";
+      }
+
+      function DltLast() 
+      {
+        res = document.getElementById("input").value;
+        ans = res.slice(0, -1);
+        document.getElementById("input").value = ans;
+      }
+
+      function Calculate() 
+      {
+        res = document.getElementById("input").value;
+        ans = eval(res);
+        document.getElementById("input").value = ans;
+      }
+    </script>
+  </body>
+</html>

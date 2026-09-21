@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Registration Form</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <form id="regForm">
+    <label>Name:</label>
+    <input type="text" id="name"><br><br>
+
+    <label>Email:</label>
+    <input type="text" id="email"><br><br>
+
+    <label>Password:</label>
+    <input type="password" id="password"><br><br>
+
+    <label>Enrollment No:</label>
+    <input type="text" id="enroll"><br><br>
+
+    <button type="submit">Register</button>
+    <p id="error" style="color:red;"></p>
+  </form>
+
+  <script>
+    $(document).ready(function(){
+      $("#regForm").submit(function(event){
+        event.preventDefault();
+
+        var name = $("#name").val().trim();
+        var email = $("#email").val().trim();
+        var password = $("#password").val();
+        var enroll = $("#enroll").val();
+
+        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+        var enrollPattern = /^[0-9]{8}$/;
+
+        if(name === ""){
+          $("#error").text("Name is required!");
+        } else if(!emailPattern.test(email)){
+          $("#error").text("Invalid Email!");
+        } else if(password.length < 6){
+          $("#error").text("Password must be at least 6 characters!");
+        } else if(!enrollPattern.test(enroll)){
+          $("#error").text("Enrollment No must be 8 digits!");
+        } else {
+          $("#error").text("");
+          alert("Form submitted successfully!");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

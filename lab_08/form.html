@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+    #submit{
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+    #submit:hover{
+        background-color: #45a049;
+    }
+    #submit:disabled{
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+    #reset{
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+    #reset:hover{
+        background-color: #da190b;
+    }
+  </style>
+</head>
+<body>
+   <h2><mark>User Registration Form</mark></h2>
+  
+  <form id="userForm" onsubmit="validateForm(event)">
+    <label for="name">Name :</label>
+    <input type="text" id="name" required><br><br>
+
+    <label for="email">Email :</label>
+    <input type="text" id="email" required><br><br>
+
+    <label for="dob">Date of Birth :</label>
+    <input type="date" id="dob" required><br><br>
+
+    <label for="enrollment">Enrollment No :</label>
+    <input type="text" id="enrollment" required><br><br>
+
+    <label for="password">Password :</label>
+    <input type="password" id="password" required><br><br>
+
+    <label for="Repet">Repeat Password :</label>
+    <input type="password" id="Repet" required><br><br>
+
+    <input type="submit" value="Submit" id="submit">
+    <input type="reset" value="Reset" id="reset">
+  </form>
+
+  <script>
+    function validateForm(e){
+      e.preventDefault();
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let dob = document.getElementById("dob").value;
+      let enrollment = document.getElementById("enrollment").value;
+      let password = document.getElementById("password").value;
+      let Repet = document.getElementById("Repet").value;
+
+      if (name.length < 8) {
+          Swal.fire("Error!", "Name must be at least 8 characters!", "error");
+          return false;
+      }
+
+      let passPattern = /^[A-Za-z0-9!@#$%&]{8,12}$/;
+      if (!passPattern.test(password)) {
+          Swal.fire("Error!", "Password must be 8-12 chars, include digit & special char!", "error");
+          return false;
+      }
+
+      if (password !== Repet) {
+          Swal.fire("Error!", "Passwords do not match!", "error");
+          return false;
+      }
+
+      let birthYear = new Date(dob).getFullYear();
+      let currentYear = new Date().getFullYear();
+      let age = currentYear - birthYear;
+
+      if (age < 18) {
+          Swal.fire("Error!", "Not submitted because your age is under 18!", "error");
+          return false;
+      }
+
+      let enroPattern = /^[0-9]{11}$/;
+      if (!enroPattern.test(enrollment)) {
+          Swal.fire("Error!", "Enrollment must be of 11 digits!", "error");
+          return false;
+      }
+
+      let emailPattern = /^[0-9a-zA-Z]+@gmail.com$/;
+      if (!emailPattern.test(email)) {
+          Swal.fire("Error!", "Email must be valid and end with @gmail.com!", "error");
+          return false;
+      }
+
+      Swal.fire("Success!", "Done, Your Form is submitted successfully!", "success");
+      return true;
+    }
+  </script>
+</body>
+</html>

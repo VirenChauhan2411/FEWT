@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let n = parseInt(prompt("Enter the number :"));
+      let rev=0,rem = 0;
+      let counter = n
+      while(n!=0)
+      {
+        rem = n%10;
+        rev = (rev*10) + rem;
+        n = parseInt(n / 10);
+      }
+      if(counter==rev)
+      {
+        alert('Number is palindrome')
+      }
+      else{
+        alert('number is not palindrome')
+      }
+
+    </script>
+  </body>
+</html>

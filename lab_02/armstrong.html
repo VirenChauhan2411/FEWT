@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let n = parseInt(prompt("Enter number  :"))
+      n = Number(n)
+
+      let temp = n
+      let dig = 0
+      let sum = 0
+
+      let copy = temp
+      while (copy > 0) 
+      {
+        dig++
+        copy =parseInt(copy / 10)
+      }
+
+      copy = temp;
+      while (copy > 0) 
+      {
+        ld = copy % 10
+        sum = sum + Math.pow(ld, dig)
+        copy = parseInt(copy / 10)
+      }
+
+      if (sum === n) {
+        alert("The number is armstrong number")
+      } else {
+        alert("The number is note armstrong number")
+      }
+    </script>
+  </body>
+</html>

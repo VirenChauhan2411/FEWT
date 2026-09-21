@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        background-color: rgb(139, 203, 161);
+        border-radius: 5px;
+      }
+      body{
+        background-color: rgb(243, 230, 155);
+      }
+      .in{
+        display: flex; justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+   <div class="in"> 
+    <label for="studentName" style="margin-top: 5px;"><b>studentName:</b></label>
+    <input type="text" id="input" style="margin: 5px;" >
+
+    <button onclick="AddData()" style="background-color: rgb(123, 123, 222);margin: 5px;">ADD</button>
+    <button onclick="Update()" style="background-color: rgb(222, 125, 123);margin: 5px;">UPDATE</button>
+    </div>
+    <br>
+
+    <table
+      border="1"
+      style="
+        width: 100%;
+        background-color: rgba(255, 228, 196, 0.507);
+        text-align: center;
+        justify-content: center;
+      "
+    >
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Name</th>
+          <th>action</th>
+        </tr>
+      </thead>
+
+      <tbody id="tbody"></tbody> 
+    </table>
+
+    <script>
+      arr = [];
+      let Editindex = -1;
+
+      function Display() 
+      {
+        temp = "";
+        for (i = 0; i < arr.length; i++) {
+          temp += `<tr>
+                <td>${i + 1}</td>
+                <td>${arr[i]}</td>
+                <td style="align-items: center; ">
+                  <button onclick="Edit(${i})">Edit</button>
+                  <button onclick="Delete(${i})">Delete</button>
+                  </td>
+                </tr>`;
+        }
+        document.getElementById("tbody").innerHTML = temp;
+      }
+
+      function AddData() {
+        let a = document.getElementById("input").value;
+        arr.push(a);
+        Display();
+        document.getElementById("input").value = "";
+      }
+
+      function Delete(i) {
+        arr.splice(i, 1);
+        Display();
+      }
+
+      function Edit(i) {
+        Editindex = i;
+        document.getElementById("input").value = arr[i];
+      }
+      function Update() {
+        nameval = document.getElementById("input").value;
+        arr.splice(Editindex, 1, nameval);
+        Display();
+        document.getElementById("input").value = "";
+        Editindex = -1;
+      }
+    </script>
+  </body>
+</html>

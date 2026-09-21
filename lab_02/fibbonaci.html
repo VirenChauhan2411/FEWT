@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let n = parseInt(prompt("Enter the number :"));
+      let a = 0,
+        b = 1,
+        sum = 0;
+
+      for (i = 1; i <= n; i++) {
+        sum = a + b;
+        a = b;
+        b = sum;
+
+        document.write(sum);
+        document.write("</br>");
+      }
+    </script>
+  </body>
+</html>

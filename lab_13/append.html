@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <ul id="heading">
+        <li>Viren</li>
+    </ul>
+    <button id="btn">append</button>
+        <button id="btn2">prepend</button>
+
+
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                $("#heading").append("<li>CHAUHAN</li>");
+            });
+        });
+          $(document).ready(function() {
+            $("#btn2").click(function() {
+                $("#heading").prepend("<li>HLWE</li>");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

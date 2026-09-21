@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      student = [
+        {
+          Name: "Dr. Jay Kuphal",
+          Department: "Movies",
+          PhoneNo: "1-430-504-5200 x726",
+          id: "1",
+        },
+        {
+          Name: "Crystal Grady DDS",
+          Department: "Sports",
+          PhoneNo: "(232) 977-8702",
+          id: "2",
+        },
+        {
+          Name: "Lee Halvorson-Bailey",
+          Department: "Beauty",
+          PhoneNo: "655-497-7695 x0008",
+          id: "3",
+        },
+        {
+          Name: "Jessica Halvorson",
+          Department: "Toys",
+          PhoneNo: "(799) 577-8357 x779",
+          id: "4",
+        },
+        {
+          Name: "Alexander Pfeffer DDS",
+          Department: "Movies",
+          PhoneNo: "1-788-769-1640",
+          id: "5",
+        },
+        {
+          Name: "Cornelius O'Conner",
+          Department: "Sports",
+          PhoneNo: "(905) 318-2697 x30067",
+          id: "6",
+        },
+        {
+          Name: "Lucy Boyle",
+          Department: "Kids",
+          PhoneNo: "(282) 989-1929 x73620",
+          id: "7",
+        },
+        {
+          Name: "Dallas Connelly",
+          Department: "Grocery",
+          PhoneNo: "573-882-7704 x45354",
+          id: "8",
+        },
+        {
+          Name: "Natasha Champlin",
+          Department: "Outdoors",
+          PhoneNo: "(382) 819-0400",
+          id: "9",
+        },
+        {
+          Name: "Natalie Turner",
+          Department: "Music",
+          PhoneNo: "1-293-232-1086 x03882",
+          id: "10",
+        },
+      ];
+      document.write("<table class='table table-striped-columns'> ");
+      document.write("<thead>");
+      document.write("<tr>");
+      document.write("<th> Name </th>");
+      document.write("<th> Department </th>");
+      document.write("<th> Phone No. </th>");
+      document.write("<th> Id </th>");
+      document.write("</tr>");
+      document.write("</thead>");
+      document.write("<tbody>");
+      for (let i = 0; i < student.length; i++) {
+        document.write("<tr>");
+        document.write("<td class='table-danger'>" + student[i].Name + "</td>");
+        document.write("<td class='table-danger'>" + student[i].Department + "</td>");
+        document.write("<td class='table-danger'>" + student[i].PhoneNo + "</td>");
+        document.write("<td class='table-danger'>" + student[i].id + "</td>");
+        document.write("</tr>");
+      }
+      document.write("</tbody>");
+
+      document.write("</table>");
+    </script>
+  </body>
+</html>

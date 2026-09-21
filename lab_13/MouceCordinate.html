@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mouse Coordinates</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h3>Move your mouse anywhere!</h3>
+  <script>
+    $(document).mousemove(function(event) {
+      console.log("X: " + event.pageX + ", Y: " + event.pageY);
+    });
+  </script>
+</body>
+</html>

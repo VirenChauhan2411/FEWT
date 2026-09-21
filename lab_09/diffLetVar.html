@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        var i = 80;
+      var j = 20;
+      function display() 
+      {
+        let i = 20;
+        console.log("inner i = "+i);//10
+        console.log("inner j = "+j);//20
+      }
+      console.log("outer i = "+i);//80
+      display();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRUD with jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    table, th, td { border:1px solid black; border-collapse:collapse; padding:5px; }
+    th { background:#f2f2f2; }
+    body{
+        background-color: rgba(127, 255, 212, 0.194);
+    }
+    
+  </style>
+</head>
+<body>
+
+<h2>CRUD </h2>
+
+FirstName: <input type="text" id="fname"><br><br>
+LastName: <input type="text" id="lname"><br><br>
+Age: <input type="number" id="age"><br><br>
+Semester: <input type="text" id="semester"><br><br>
+RollNumber: <input type="text" id="roll"><br><br>
+ImagePath: <input type="text" id="img"><br><br>
+<button id="addBtn">Add</button>
+<button id="updateBtn">Update</button>
+
+<hr>
+
+<table id="studentTable" style="width: 100%;">
+  <thead>
+    <tr>
+      <th>FirstName</th><th>LastName</th><th>Age</th>
+      <th>Semester</th><th>RollNumber</th><th>ImagePath</th><th>Action</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+$(document).ready(function(){
+  let students = [];   
+  let editIndex = -1; 
+
+  $("#addBtn").click(function(){
+    let student = {
+      FirstName: $("#fname").val(),
+      LastName: $("#lname").val(),
+      Age: $("#age").val(),
+      Semester: $("#semester").val(),
+      RollNumber: $("#roll").val(),
+      ImagePath: $("#img").val()
+    };
+    students.push(student);
+    display();
+    clearForm();
+  });
+
+  function display(){
+    let rows = "";
+    $.each(students, function(index, s){
+      rows += `<tr>
+        <td>${s.FirstName}</td>
+        <td>${s.LastName}</td>
+        <td>${s.Age}</td>
+        <td>${s.Semester}</td>
+        <td>${s.RollNumber}</td>
+        <td>${s.ImagePath}</td>
+        <td>
+          <button class='editBtn' data-index='${index}'>Edit</button>
+          <button class='delBtn' data-index='${index}'>Delete</button>
+        </td>
+      </tr>`;
+    });
+    $("#studentTable tbody").html(rows);
+  }
+
+  $(document).on("click", ".delBtn", function(){
+    let i = $(this).data("index");
+    students.splice(i,1);
+    display();
+  });
+
+  $(document).on("click", ".editBtn", function(){
+    editIndex = $(this).data("index");
+    let s = students[editIndex];
+    $("#fname").val(s.FirstName);   
+    $("#lname").val(s.LastName);
+    $("#age").val(s.Age);
+    $("#semester").val(s.Semester);
+    $("#roll").val(s.RollNumber);
+    $("#img").val(s.ImagePath);
+  });
+
+  // UPDATE
+  $("#updateBtn").click(function(){
+    if(editIndex > -1){
+      students[editIndex] = {
+        FirstName: $("#fname").val(),
+        LastName: $("#lname").val(),
+        Age: $("#age").val(),
+        Semester: $("#semester").val(),
+        RollNumber: $("#roll").val(),
+        ImagePath: $("#img").val()
+      };
+      display();
+      clearForm();
+      editIndex = -1;
+    }
+  });
+
+  function clearForm(){
+    $("#fname,#lname,#age,#semester,#roll,#img").val("");
+  }
+});
+</script>
+
+</body>
+</html>

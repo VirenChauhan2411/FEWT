@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enrollment Validation</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <label>Darshan Enrollment No:</label>
+  <input type="text" id="enroll" placeholder="Enter Enrollment No">
+  <span id="msg" style="color:red;"></span>
+
+  <script>
+    $(document).ready(function(){
+      $("#enroll").blur(function(){
+        var enroll = $(this).val();
+        var pattern = /^[0-9]{8}$/; 
+        if(!pattern.test(enroll))
+        {
+          $("#msg").text("Invalid Enrollment Number!");
+        } else 
+        {
+          $("#msg").text("");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

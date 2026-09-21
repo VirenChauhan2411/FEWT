@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+           let n1 = parseInt(prompt("Enter number 1 :"))
+          let n2 = parseInt(prompt("Enter number 2 :"))
+
+          let gcd = 1;
+
+          for(i=1;i<= n1 && i<=n2;i++)
+      {
+          if(n1%i ==0 && n2%i==0)
+      {
+          gcd = i;
+      }
+      }
+      alert("gcd = "+gcd)
+    </script>
+  </body>
+</html>

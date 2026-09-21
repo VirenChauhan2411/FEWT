@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    div {
+      height: 300px;
+      width: 200 px;
+      background-color: rgb(0, 255, 98);
+      font: larger;
+    }
+  </style>
+  <body>
+    <input type="text" id="keyboard">
+    <p id="msg"></p>
+  </body>
+  <script>
+    (document.getElementById("keyboard"),
+      addEventListener("keydown", function (e) 
+      {
+        document.getElementById("msg").innerHTML = "KEYDOWN EVENT FIRED";
+        console.log(e.key);
+      }));
+
+    (document.getElementById("keyboard"),
+      addEventListener("keyup", function () {
+        document.getElementById("msg").innerHTML = "KEYUP EVENT FIRED";
+      }));
+
+    (document.getElementById("keyboard"),
+      addEventListener("keypress", function () {
+        document.getElementById("msg").innerHTML = "KEYPRESS EVENT FIRED";
+      }));
+  </script>
+</html>

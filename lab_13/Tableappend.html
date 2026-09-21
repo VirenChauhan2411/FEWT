@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+  <table border="1" style="background-color: rgba(165, 42, 42, 0.46);">
+   <thead style="background-color: rgba(3, 61, 255, 0.651);">
+     <tr>
+        <th>Name</th>
+     </tr>
+   </thead>
+   <tbody id="heading">
+    
+   </tbody>
+  </table><br>
+
+    <button id="btn">add row</button>
+
+
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                $("#heading").append("<tr><td>CHAUHAN</td></tr>");
+            });
+        });
+        
+    </script>
+
+</body>
+
+</html>

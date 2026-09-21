@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let n = prompt("Enter the string : ");
+      let res = n.split(" ");
+      let index = -1; 
+      let a = prompt("Enter the word for searching : ");
+
+      for (let i = 0; i < res.length; i++) {
+        if (res[i] === a) {
+          console.log("The index of the word is : " + i);
+          index = i;
+          break;
+        }
+      }
+
+      if (index !== -1) {
+        alert("Word found at index: " + index);
+      } else {
+        alert("Word not found in the sentence.");
+      }
+    </script>
+  </body>
+</html>

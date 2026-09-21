@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <script>    
+      const animals = ["pigs", "goats", "sheep", "cows", "buffelows", "Lions"];
+      animals.pop();
+      document.write("using pop : " + animals); // using push : pigs,goats,sheep,cows,buffelows,shieeps
+      document.write("</br>");
+
+      animals.push("shieeps");
+      document.write("using push : " + animals);// using push : pigs,goats,sheep,cows,buffelows,shieeps
+      document.write("</br>");
+
+      animals.shift("Lion");
+      document.write("using shift : " + animals);// using shift : goats,sheep,cows,buffelows,shieepsusing
+      document.write("</br>");
+
+      animals.unshift("Om");
+      document.write("using unshift : " + animals);// using unshift : Om,goats,sheep,cows,buffelows,shieeps
+      document.write("</br>");
+
+       arr = animals.slice(3,5);
+      document.write("using slice : " + arr);// using slice : cows,buffelows
+      document.write("</br>");
+
+      ar = animals.splice(2,4);
+      document.write("using splice : " + ar);// using splice : sheep,cows,buffelows,shieeps 
+      document.write("</br>");
+    </script>
+  </body>
+</html>

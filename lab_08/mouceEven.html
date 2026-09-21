@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        height: 500px;
+        width: 900px;
+        border-radius: 100px;
+        margin-left: 300px;
+        margin-top: 100px;
+        background-color: aqua;
+        text-align: center;
+        padding-top: 100px;
+        font:larger;
+      }
+   
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box"><h1 id="msg">Mouse Event Demo</h1></div>
+
+    <script>
+      document.getElementById("box").addEventListener("mouseover", function () 
+      {
+        document.getElementById("msg").innerHTML = "mouseover event Fired";
+      });
+
+
+        document.getElementById("box").addEventListener("mouseout", function () 
+      {
+        document.getElementById("msg").innerHTML = "mouse out";
+      });
+
+         document.getElementById("box").addEventListener("mouseenter", function () 
+      {
+        document.getElementById("msg").innerHTML = "mouse enter";
+      });
+
+        document.getElementById("box").addEventListener("click", function () 
+      {
+        document.getElementById("msg").innerHTML = "single click";
+      });
+
+      document.getElementById("box").addEventListener("dblclick", function () 
+      {
+        document.getElementById("msg").innerHTML = "double click";
+      });
+
+
+      
+      
+    
+      
+
+    </script>
+  </body>
+</html>
